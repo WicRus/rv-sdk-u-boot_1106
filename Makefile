@@ -368,6 +368,7 @@ KBUILD_CFLAGS   := -Wall -Wstrict-prototypes \
 		   -Wno-format-security \
 		   -fno-builtin -ffreestanding
 KBUILD_CFLAGS	+= -fshort-wchar -Werror
+KBUILD_CFLAGS	+= -Wno-maybe-uninitialized -Wno-enum-int-mismatch -Wno-address
 KBUILD_AFLAGS   := -D__ASSEMBLY__
 
 # Read UBOOTRELEASE from include/config/uboot.release (if it exists)
