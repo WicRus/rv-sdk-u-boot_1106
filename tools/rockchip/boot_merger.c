@@ -450,6 +450,7 @@ static bool parseOpts_from_cmdline(int argc, char **argv)
 	int tag = 0;
 	int v0, v1, v2, v3;
 
+  gOpts.outPath[0] = '\0';
 	for (i = 2; i < argc; i++) {
 		if (!strcmp(OPT_471, argv[i])) {
 			i++;
@@ -487,8 +488,9 @@ static bool parseOpts_from_cmdline(int argc, char **argv)
 	sscanf(gOpts.loader[1].path, "%*[^v]v%d.%d.bin", &v2, &v3);
 	gOpts.major = v2;
 	gOpts.minor = v3;
-	snprintf(gOpts.outPath, sizeof(gOpts.outPath),
-	         "%s_loader_v%d.%02d.%d%02d.bin", gOpts.chip, v0, v1, v2, v3);
+  if ( gOpts.outPath[0] == '\0' )
+    snprintf(gOpts.outPath, sizeof(gOpts.outPath),
+            "%s_loader_v%d.%02d.%d%02d.bin", gOpts.chip, v0, v1, v2, v3);
 	return ((tag & 0x0f) == 0x0f) ? true : false;
 }
 

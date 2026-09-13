@@ -62,6 +62,9 @@ ifdef CONFIG_ARCH_ROCKCHIP
 hostprogs-y += resource_tool
 hostprogs-y += bmp2gray16
 
+hostprogs-y += boot_merger
+boot_merger-objs := rockchip/boot_merger.o
+
 resource_tool-objs := rockchip/resource_tool.o
 bmp2gray16-objs := rockchip/bmp2gray16.o
 endif
